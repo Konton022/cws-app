@@ -1,5 +1,6 @@
-@for ($counter = 0; $counter < 10; $counter++)
-    <h1>{{ $counter }}</h1>
-    
-@endfor
+@extends('layouts.base')
 
+@section('content')
+    
+<h2 class="text-center">Main page</h2>
+@endsection

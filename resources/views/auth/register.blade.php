@@ -1,27 +1,46 @@
-<form method="POST" action="{{ route('register') }}">
-    @csrf
+@extends('layouts.base')
 
-    <div>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required autofocus>
-    </div>
+@section('page.title', 'Register')
 
-    <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-    </div>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
 
-    <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-    </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">{{ __('Name') }}</label>
+                            <input type="text" class="form-control" name="name" id="name" required autofocus>
+                        </div>
 
-    <div>
-        <label for="password_confirmation">Confirm Password</label>
-        <input type="password" name="password_confirmation" id="password_confirmation" required>
-    </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                            <input type="email" class="form-control" name="email" id="email" required>
+                        </div>
 
-    <div>
-        <button type="submit">Register</button>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ __('Password') }}</label>
+                            <input type="password" class="form-control" name="password" id="password" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password-confirm" class="form-label">{{ __('Confirm Password') }}</label>
+                            <input type="password" class="form-control" name="password_confirmation" id="password-confirm" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</form>
+</div>
+@endsection
