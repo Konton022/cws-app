@@ -14,11 +14,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 Route::view('/', 'home.index')->name('home');
-
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/register', [LoginController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [LoginController::class, 'register']);
 Route::view('/about', 'home.about')->name('about');
+
+

@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('home') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">{{ __('Home') }}</a>
+                    <a class="nav-link {{ active_link('home') }}" aria-current="page" href="{{ route('home') }}">{{ __('Home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('events.index') ? 'active' : '' }}" href="{{ route('events.index') }}">{{ __('Events') }}</a>
+                    <a class="nav-link {{ active_link('events') }}" href="{{ route('events.index') }}">{{ __('Events') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ url('/about') }}">{{ __('About') }}</a>
+                    <a class="nav-link {{ active_link('about') }}" href="{{ url('/about') }}">{{ __('About') }}</a>
                 </li>
                 <!-- Add other navigation links here -->
             </ul>
@@ -21,11 +21,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link {{ active_link('login') }}" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link {{ active_link('register') }}" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
