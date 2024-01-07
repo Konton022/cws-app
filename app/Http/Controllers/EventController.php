@@ -11,7 +11,7 @@ class EventController extends Controller
     {   
         try {
             // Fetch posts from the fake JSON placeholder API
-            $posts = Http::get('https://jsonplaceholder.typicode.com/posts')->json();
+            $posts = collect(Http::get('https://jsonplaceholder.typicode.com/posts')->json());
 
             // Send the posts data to the 'events' view
             return view('events.index', ['events' => $posts]);

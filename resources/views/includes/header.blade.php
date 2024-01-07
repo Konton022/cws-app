@@ -10,7 +10,7 @@
                     <a class="nav-link {{ active_link('home') }}" aria-current="page" href="{{ route('home') }}">{{ __('Home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ active_link('events') }}" href="{{ route('events.index') }}">{{ __('Events') }}</a>
+                    <a class="nav-link {{ active_link('events.index') }}" href="{{ route('events.index') }}">{{ __('Events') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ active_link('about') }}" href="{{ url('/about') }}">{{ __('About') }}</a>

@@ -1,3 +1,5 @@
 <div class="container">
-    {{ $slot }}
+    <div class="row">
+        {{ $slot }}
+    </div>
 </div>
