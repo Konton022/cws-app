@@ -1,4 +1,4 @@
-<div class="col-12 col-md-4 mb-3">
+<div class="col-12 col-md-4 mb-4">
     <x-card>
         <x-card-header>
             <h2 class="h5 card-title">{{ $event['title'] }}</h2>

@@ -12,9 +12,9 @@
 <body>
     <div class="d-flex flex-column min-vh-100 justify-content-between">
         @include('includes.header')
-        <div class="py-3">
+        <x-container>
             @yield('content')
-        </div>
+        </x-container>
         @include('includes.footer')
     </div>
     <style>

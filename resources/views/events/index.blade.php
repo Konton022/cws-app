@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('page.title', 'Events')
 @section('content')
-    <x-container>
-        <h1 class="h2 my-3 text-center">{{ __('Events') }}</h2>
+        <x-title>{{ __('Events') }}</x-title>
+        <div class="row">
             @if($events->isEmpty())
                 <div class="alert alert-info" role="alert">
                     {{ __('Nothing to render') }}
@@ -12,8 +12,8 @@
                     <x-event.card :event="$event" />
                 @endforeach
             @endif
+            <a href="{{ route('events.create') }}" class="btn btn-primary">{{ __('Create Event') }}</a>
+        </div>
 
-        <a href="{{ route('events.create') }}" class="btn btn-primary">{{ __('Create Event') }}</a>
-    </x-container>
 
 @endsection
