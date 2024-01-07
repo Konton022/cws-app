@@ -5,7 +5,7 @@
         </x-card-header>
         <x-card-body>
             <p class="card-text">{{ $event['body'] }}</p>
-            <a href="{{ route('events.show', $event['id']) }}" class="btn btn-primary">{{ __('View') }}</a>
+            <a href="{{ route('events.show', $event['id']) }}" class="btn btn-outline-primary btn-sm">{{ __('View') }}</a>
         </x-card-body>
     </x-card>
 </div>
