@@ -4,11 +4,13 @@
 
 @section('auth.content')
     <x-card>
-        <x-card-header>{{ __('Register') }}</x-card-header>
+        <x-card-header>{{ __('Register') }}
+            <x-slot name="right">
+                <a href="{{ route('login') }}" class="btn btn-link">{{ __('Login') }}</a>
+            </x-slot>
+        </x-card-header>
         <x-card-body>
             <x-form method="POST" action="{{ route('register') }}">
-                @csrf
-
                 <x-form-item>
                     <x-label for="name" class="form-label" required>{{ __('Name') }}</x-label>
                     <x-input type="text" class="form-control" name="name" id="name" required autofocus />
