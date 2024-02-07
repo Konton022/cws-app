@@ -13,12 +13,12 @@
             <x-form method="POST" action="{{ route('register') }}">
                 <x-form-item>
                     <x-label for="name" class="form-label" required>{{ __('Name') }}</x-label>
-                    <x-input type="text" class="form-control" name="name" id="name" required autofocus />
+                    <x-input type="text" class="form-control" value="{{ request()->old('name') }}" name="name" id="name" required autofocus />
                 </x-form-item>
 
                 <x-form-item>
                     <x-label for="email" class="form-label" required>{{ __('Email Address') }}</x-label>
-                    <x-input type="email" class="form-control" name="email" id="email" required />
+                    <x-input type="email" class="form-control" value="{{ request()->input('email', old('email')) }}" name="email" id="email" required />
                 </x-form-item>
 
                 <x-form-item>
@@ -29,6 +29,11 @@
                 <x-form-item>
                     <x-label for="password-confirm" class="form-label" required>{{ __('Confirm Password') }}</x-label>
                     <x-input type="password" class="form-control" name="password_confirmation" id="password-confirm" required />
+                </x-form-item>
+
+                <x-form-item>
+                    <x-label for="agree" class="form-label" required>{{ __('Agree') }}</x-label>
+                    <x-checkbox id="agree" name="agree" :checked="!!old('agree')" />
                 </x-form-item>
 
                 <x-form-item>

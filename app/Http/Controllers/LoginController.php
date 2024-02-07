@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-        /**
+    /**
      * Display the login form.
      *
      * @return \Illuminate\Http\Response
@@ -28,9 +28,13 @@ class LoginController extends Controller
         // Attempt to log the user in
         // If successful, redirect to their intended location
         // If unsuccessful, redirect back to the login with the form data
-        $remember = $request->boolean('remember', false);
-        dd($remember);
-        return $request->all();
+        // $remember = $request->boolean('remember', false);
+        // dd($remember);
+
+        $email = $request->input('email');
+
+        return redirect()->route('users.show', ['user' => $email]);
+
     }
 
     /**
@@ -66,8 +70,12 @@ class LoginController extends Controller
         // Create the user
         // Log the user in
         // Redirect to the dashboard or home page
-        dd($request->all());
-        return $request->all();
+        $email = $request->input('email');
+
+        if($email) {
+         return redirect()->back()->withInput();
+        }
+        return redirect()->route('users.show', ['user' => $email]);
     }
 
     /**
