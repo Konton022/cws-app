@@ -28,7 +28,8 @@ class LoginController extends Controller
         // Attempt to log the user in
         // If successful, redirect to their intended location
         // If unsuccessful, redirect back to the login with the form data
-
+        $remember = $request->boolean('remember', false);
+        dd($remember);
         return $request->all();
     }
 
@@ -65,6 +66,7 @@ class LoginController extends Controller
         // Create the user
         // Log the user in
         // Redirect to the dashboard or home page
+        dd($request->all());
         return $request->all();
     }
 

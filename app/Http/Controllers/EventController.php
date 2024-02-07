@@ -7,11 +7,19 @@ use Illuminate\Support\Facades\Http;
 
 class EventController extends Controller
 {
-    public function index()
-    {   
+    public function index(Request $request)
+    {
+        $title = $request->input('title');
         try {
             // Fetch posts from the fake JSON placeholder API
             $posts = collect(Http::get('https://jsonplaceholder.typicode.com/posts')->json());
+
+            if ($title) {
+                // Filter posts by title
+                $posts = $posts->filter(function ($post) use ($title) {
+                    return str_contains(strtolower($post['title']), strtolower($title));
+                });
+            }
 
             // Send the posts data to the 'events' view
             return view('events.index', ['events' => $posts]);
@@ -27,12 +35,14 @@ class EventController extends Controller
     public function create()
     {
         // Show the form for creating a new event
-        return 'CREATE';    
+        return view('events.create');
     }
 
     public function store(Request $request)
     {
         // Store a new event
+        dd($request->ip());
+        dd($request->all());
         return 'STORE';
     }
 
@@ -48,7 +58,7 @@ class EventController extends Controller
             // Handle any exceptions that occur during the API request
             return 'An error occurred: ' . $e->getMessage();
         }
-        
+
     }
 
     public function edit($id)
@@ -68,7 +78,7 @@ class EventController extends Controller
             'body' => 'required|string',
             // Add other fields as necessary
         ]);
-        
+
         try {
             // Send the updated event data to the fake JSON placeholder API
             $response = Http::put("https://jsonplaceholder.typicode.com/posts/{$id}", $validatedData);
@@ -76,10 +86,10 @@ class EventController extends Controller
             if ($response->successful()) {
                 // Decode the updated post data
                 $updatedPost = $response->json();
-                
+
                 // Redirect to the event's page with a success message
                 return redirect()->route('events.show', $updatedPost['id'])->with('success', 'Event updated successfully.');
-                                 
+
             } else {
                 // Handle if the API response is not successful
                 return response()->json(['error' => 'Failed to update the event.'], 500);
