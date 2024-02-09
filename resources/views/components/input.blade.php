@@ -1,1 +1,5 @@
-<input {{ $attributes->merge(['class' => 'form-control', 'type' => 'text', 'value' => $attributes->get('name')]) }}>
+@php
+  $inputAttributes = $attributes->class(['class' => 'form-control'])->merge(['type' => 'text', 'value' => request()->old((string)$attributes->get('name'))]);
+@endphp
+
+<input {!! $inputAttributes !!} >
