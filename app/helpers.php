@@ -6,3 +6,10 @@ if(! function_exists('active_link')){
         return Route::is($name) ? $active : '';
     }
 }
+
+if(! function_exists('alert')){
+    function alert(string $message, string $type='success' ): void
+    {
+        session(['alert'=> $message, 'type'=>$type]);
+    }
+}

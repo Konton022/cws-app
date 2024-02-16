@@ -11,10 +11,13 @@
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100 justify-content-between">
+        @include('includes.alert')
         @include('includes.header')
-        <x-container>
-            @yield('content')
-        </x-container>
+        <main class="flex-grow-1 py-3">
+            <x-container>
+                @yield('content')
+            </x-container>
+        </main>
         @include('includes.footer')
     </div>
     <style>

@@ -13,6 +13,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+
         return view('auth.login');
     }
 
@@ -31,9 +32,13 @@ class LoginController extends Controller
         // $remember = $request->boolean('remember', false);
         // dd($remember);
 
-        $email = $request->input('email');
 
-        return redirect()->route('users.show', ['user' => $email]);
+        $user = $request->input('email');
+
+        alert('Welcome to your page');
+
+
+        return redirect()->route('users.show', ['user'=> $user]);
 
     }
 

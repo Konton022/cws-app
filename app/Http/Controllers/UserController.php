@@ -46,7 +46,7 @@ class UserController extends Controller
     public function show($id)
     {
         // Display the specified user
-        dd($id);
+        return view('user.index');
     }
 
     /**

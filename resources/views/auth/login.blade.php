@@ -14,13 +14,13 @@
             <x-form method="POST" action="{{ route('login') }}">
                 <x-form-item>
                     <x-label for="email" class="form-label" required>{{ __('E-Mail Address') }}</x-label>
-                    <x-input type="email" name="email" id="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                    <x-input class="form-control" type="email" name="email" id="email" required autocomplete="email" autofocus />
                 </x-form-item>
                 <x-form-item>
                     <x-label for="password" class="form-label" required>{{ __('Password') }}</x-label>
-                    <x-input type="password" name="password" id="password" required autocomplete="current-password" />
+                    <x-input class="form-control" type="password" name="password" id="password" required autocomplete="current-password" />
                 </x-form-item>
-                <x-form-item> 
+                <x-form-item>
                     <x-checkbox name="remember" >{{ __('Remember Me') }}</x-checkbox>
                 </x-form-item>
                 <x-form-item>
